@@ -1,7 +1,8 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## The following function will set the value of the matrix, get the value of the
+## matrix, set the inverse of the matrix and finally get that inverse value.
 
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
@@ -15,8 +16,10 @@ makeCacheMatrix <- function(x = matrix()) {
   list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
 }
 
-
-## Write a short comment describing this function
+## The following function will check if the matrix introduced was already
+## computed previously. If the matrix has not changed, the function would
+## return tha value calculated previously, whereas if it changed, it would
+## calculate de inverse and assign that new value.
 
 cacheSolve <- function(x, ...) {
   inv <- x$getinverse()
@@ -24,5 +27,8 @@ cacheSolve <- function(x, ...) {
     message('Getting cache data')
     return(inv)
   }
-  
+  datos <- x$get()
+  inv <- solve(data,...)
+  x$setinverse(inv)
+  return(inv)
 }
